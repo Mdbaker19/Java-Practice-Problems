@@ -5,6 +5,8 @@ public class Main {
 
         System.out.println(factorial(5)); // => 120
 
+        System.out.println(fibonacci(47));// => 2971215073
+
 
     }
 
@@ -21,6 +23,12 @@ public class Main {
 
     public static int factorial(int n) {
         return (n == 1) ? 1 : n * factorial(n - 1);
+    }
+
+    public static Long fibonacci(int n) {
+        if(n == 0) return 0L;
+        if(n == 1) return 1L;
+        return fibonacci(n - 1) + fibonacci(n - 2);
     }
 
 }
