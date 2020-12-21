@@ -3,6 +3,8 @@ public class Main {
 
         System.out.println(sumDigits(126)); // => 9
 
+        System.out.println(factorial(5)); // => 120
+
 
     }
 
@@ -15,6 +17,10 @@ public class Main {
 
         return sum + sumDigits(n/10);
 
+    }
+
+    public static int factorial(int n) {
+        return (n == 1) ? 1 : n * factorial(n - 1);
     }
 
 }
