@@ -31,4 +31,11 @@ public class Main {
         return fibonacci(n - 1) + fibonacci(n - 2);
     }
 
+    public static int triangle(int rows) {
+        if(rows == 1) return 1;
+        if(rows == 0) return 0;
+        return rows + triangle(rows - 1);
+    }
+
+
 }
