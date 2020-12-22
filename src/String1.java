@@ -17,4 +17,13 @@ public class String1 {
         String b = out.substring(out.length()/2, out.length());
         return f+word+b;
     }
+    public String extraEnd(String str) {
+        String s = str.substring(str.length()-2, str.length());
+        return s+s+s;
+    }
+    public String firstTwo(String str) {
+        if(str.isEmpty()) return "";
+        if(str.length() < 2) return str;
+        return str.substring(0, 2);
+    }
 }
