@@ -17,4 +17,12 @@ public class Array1 {
         int value2 = b[b.length-1];
         return value1 == value2 || a[0] == b[0];
     }
+    public int sum3(int[] nums) {
+        int total = 0;
+        for(int value : nums){
+            total += value;
+        }
+        return total;
+    }
+
 }
