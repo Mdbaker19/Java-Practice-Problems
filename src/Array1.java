@@ -35,4 +35,27 @@ public class Array1 {
         return bucket;
     }
 
+    public int[] maxEnd3(int[] nums) {
+        int[] maxes = new int [nums.length];
+        int first = nums[0];
+        int last = nums[nums.length-1];
+
+        int high = 0;
+
+        if(first > last){
+            high = first;
+        } else {
+            high = last;
+        }
+
+        int spot = 0;
+        for(int value : nums){
+            maxes[spot] = high;
+            spot++;
+        }
+
+        return maxes;
+
+    }
+
 }
