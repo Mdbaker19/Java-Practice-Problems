@@ -25,4 +25,14 @@ public class Array1 {
         return total;
     }
 
+    public int[] reverse3(int[] nums) {
+        int size = nums.length;
+        int[] bucket = new int[size];
+        for(int value : nums){
+            size--;
+            bucket[size] = value;
+        }
+        return bucket;
+    }
+
 }
