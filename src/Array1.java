@@ -55,6 +55,22 @@ public class Array1 {
         }
 
         return maxes;
+    }
+
+    public int sum2(int[] nums) {
+        int sum = 0;
+
+        if(nums.length > 2){
+
+            for(int i = 0; i < 2; i++){
+                sum += nums[i];
+            }
+        } else{
+            for(int value : nums){
+                sum += value;
+            }
+        }
+        return sum;
 
     }
 
