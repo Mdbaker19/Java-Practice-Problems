@@ -70,4 +70,18 @@ public class Warmup1 {
         return output;
 
     }
+    public String endUp(String str) {
+        if(str.length() < 3){
+            return str.toUpperCase();
+        } else {
+
+            String build = "";
+
+            String begin = str.substring(0, str.length() - 3);
+            String upped = str.substring(str.length() - 3);
+
+            return begin + upped.toUpperCase();
+
+        }
+    }
 }
