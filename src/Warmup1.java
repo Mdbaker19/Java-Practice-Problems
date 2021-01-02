@@ -42,4 +42,10 @@ public class Warmup1 {
     public boolean monkeyTrouble(boolean aSmile, boolean bSmile) {
         return (aSmile && bSmile) || (!aSmile && !bSmile);
     }
+    public boolean parrotTrouble(boolean talking, int hour) {
+        if(talking){
+            return hour < 7 || hour > 20;
+        }
+        return false;
+    }
 }
