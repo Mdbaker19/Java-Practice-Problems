@@ -5,7 +5,11 @@ public class RecursionEasy {
 
         System.out.println(factorial(5)); // => 120
 
-        System.out.println(fibonacci(47));// => 2971215073
+//        System.out.println(fibonacci(47));// => 2971215073
+
+        String s = "matt";
+
+        System.out.println(s.substring(s.length() - 2));
 
 
     }
@@ -53,4 +57,23 @@ public class RecursionEasy {
         if(bunnies % 2 == 1)   return 2 + bunnyEars2(bunnies - 1);
         return 3 + bunnyEars2(bunnies - 1);
     }
+
+    public static int countX(String str) {
+        if(str.length() < 1){
+            return 0;
+        }
+        int count = 0;
+        String check = str.substring(str.length() - 1);
+        if(str.length() == 1){
+            return check.equals("x") ? 1 : 0;
+        } else {
+            if (check.equals("x")){
+                count++;
+            }
+        }
+        return count + countX(str.substring(0, str.length() - 1));
+
+    }
+
+
 }
