@@ -99,5 +99,25 @@ public class Maps {
 
         return map;
     }
+    public Map<String, String> mapAB4(Map<String, String> map) {
+        if(map.containsKey("b") && map.containsKey("a")){
+            String as = map.get("a");
+            String bs = map.get("b");
+
+            if(as.length() > bs.length()){
+                map.put("c", as);
+            } else if(bs.length() > as.length()) {
+                map.put("c", bs);
+            }
+
+            if(as.length() == bs.length()){
+                map.put("a", "");
+                map.put("b", "");
+            }
+        }
+
+        return map;
+    }
+
 
 }
