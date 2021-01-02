@@ -5,10 +5,12 @@ public class Maps {
     public static void main(String[] args) {
         HashMap<String, String> test = new HashMap<>();
         test.put("a", "candy");
-//        test.put("b", "dirt");
+        test.put("b", "dirt");
 
-        test.remove("b");
+//        test.remove("b");
 
+
+        test.put("ab", (test.get("a") + test.get("b")));
 
 
 //        test.replace("b", test.get("a"));
@@ -43,5 +45,11 @@ public class Maps {
 
         return map;
 
+    }
+    public Map<String, String> mapAB(Map<String, String> map) {
+        if(map.containsKey("a") && map.containsKey("b")){
+            map.put("ab", (map.get("a") + map.get("b")));
+        }
+        return map;
     }
 }
