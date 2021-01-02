@@ -33,4 +33,10 @@ public class Warmup1 {
         return str.substring(n + 1);
 
     }
+    public String backAround(String str) {
+        String sub = str.substring(str.length() - 1);
+
+        return sub + str + sub;
+
+    }
 }
