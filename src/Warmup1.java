@@ -51,4 +51,13 @@ public class Warmup1 {
     public boolean makes10(int a, int b) {
         return a + b == 10 || (a == 10 || b == 10);
     }
+    public boolean posNeg(int a, int b, boolean negative) {
+        if(negative){
+            return a < 0 && b < 0;
+        }
+        else{
+            return a < 0 ^ b < 0;
+        }
+
+    }
 }
