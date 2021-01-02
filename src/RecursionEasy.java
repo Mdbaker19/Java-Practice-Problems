@@ -7,9 +7,8 @@ public class RecursionEasy {
 
 //        System.out.println(fibonacci(47));// => 2971215073
 
-        String s = "matt";
+        int[] s = {1, 2, 11};
 
-        System.out.println(s.substring(s.length() - 2));
 
 
     }
@@ -75,5 +74,19 @@ public class RecursionEasy {
 
     }
 
+    public int array11(int[] nums, int index) {
+        int len = nums.length;
+        int count = 0;
+
+        if(len < 1){
+            return 0;
+        }else if(index == len - 1){
+            return nums[index] == 11 ? 1 : 0;
+        }
+        if(nums[index] == 11){
+            count++;
+        }
+        return count + array11(nums, index + 1);
+    }
 
 }
