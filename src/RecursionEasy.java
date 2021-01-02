@@ -1,3 +1,5 @@
+import java.util.HashMap;
+
 public class RecursionEasy {
     public static void main(String[] args) {
 
@@ -5,7 +7,10 @@ public class RecursionEasy {
 
         System.out.println(factorial(5)); // => 120
 
-//        System.out.println(fibonacci(47));// => 2971215073
+//        System.out.println(fibonacci(47));// => 2971215073 // very slow
+
+        HashMap<Integer, Long> memoMap = new HashMap<>();
+        System.out.println(memoFib(47, memoMap)); // very fast return
 
         int[] s = {1, 2, 11};
 
@@ -32,6 +37,15 @@ public class RecursionEasy {
         if(n == 0) return 0L;
         if(n == 1) return 1L;
         return fibonacci(n - 1) + fibonacci(n - 2);
+    }
+
+    public static Long memoFib(int n, HashMap<Integer, Long> memo){
+        if(memo.containsKey(n)){
+            return memo.get(n);
+        }
+        if(n <= 2) return 1L;
+        memo.put(n, memoFib(n - 1, memo) + memoFib(n - 2, memo));
+        return memo.get(n);
     }
 
     public static int triangle(int rows) {
