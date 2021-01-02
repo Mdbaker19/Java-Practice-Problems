@@ -16,4 +16,13 @@ public class Warmup1 {
     public int diff21(int n) {
         return n > 21 ? Math.abs(n - 21) * 2 : Math.abs(n - 21);
     }
+
+    public boolean nearHundred(int n) {
+        if(Math.abs(n - 100) <= 10){
+            return true;
+        } else if(Math.abs(n - 200) <= 10){
+            return true;
+        }
+        return false;
+    }
 }
