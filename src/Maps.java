@@ -4,14 +4,18 @@ import java.util.Map;
 public class Maps {
     public static void main(String[] args) {
         HashMap<String, String> test = new HashMap<>();
-//        test.put("a", "candy");
+        test.put("a", "candy");
 //        test.put("b", "dirt");
-//
+
+        test.remove("b");
+
+
+
 //        test.replace("b", test.get("a"));
 //        test.replace("a", "");
 //
-//        System.out.println(test);
-
+        System.out.println(test);
+//
 //        System.out.println(test.get("b") == null);
 
 
@@ -29,5 +33,15 @@ public class Maps {
             map.replace("a", "");
         }
         return map;
+    }
+    public Map<String, String> mapShare(Map<String, String> map) {
+        map.remove("c");
+
+        if(map.containsKey("a")){
+            map.put("b", map.get("a"));
+        }
+
+        return map;
+
     }
 }
