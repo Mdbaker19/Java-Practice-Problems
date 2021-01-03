@@ -89,6 +89,12 @@ public class RecursionEasy {
         return 3 + bunnyEars2(bunnies - 1);
     }
 
+    public int bunnyEars2(int bunnies) {
+        if(bunnies < 1) return 0;
+        if(bunnies <= 1) return 2;
+        return bunnies % 2 == 0 ? 3 + bunnyEars2(bunnies - 1) : 2 + bunnyEars2(bunnies - 1);
+    }
+
     public static int countX(String str) {
         if(str.length() < 1){
             return 0;
