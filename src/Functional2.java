@@ -37,6 +37,12 @@ public class Functional2 {
         strings.removeIf(s -> s.length() >= 3 && s.length() <= 4);
         return strings;
     }
+    public List<String> noYY(List<String> strings) {
+        strings.removeIf(s -> s.endsWith("y") || s.contains("yy"));
+        strings.replaceAll(s -> s + "y");
+        return strings;
+    }
+
 
 
 }
