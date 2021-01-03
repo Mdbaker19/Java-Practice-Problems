@@ -44,6 +44,22 @@ public class Maps2 {
         }
         return out;
     }
+    public Map<String, String> firstChar(String[] strings) {
+        Map<String, String> out = new HashMap<>();
+
+        for(String s : strings){
+            String start = s.substring(0, 1);
+            StringBuilder build = new StringBuilder();
+            for(String a : strings){
+                if(a.substring(0, 1).equals(start)){
+                    build.append(a);
+                }
+            }
+            out.put(start, build.toString());
+        }
+        return out;
+
+    }
 
 
 }
