@@ -29,6 +29,10 @@ public class RecursionEasy {
 
     }
 
+    public int sumDigitsSecond(int n) {
+        return n >= 10 ? n % 10 + sumDigitsSecond(n/10) : n;
+    }
+
     public static int factorial(int n) {
         return (n == 1) ? 1 : n * factorial(n - 1);
     }
