@@ -47,4 +47,9 @@ public class Functional1 {
         strings.replaceAll(s -> "y" +s+"y");
         return strings;
     }
+    public List<Integer> math1(List<Integer> nums) {
+        nums.replaceAll(n -> (n + 1) * 10);
+        return nums;
+    }
+
 }
