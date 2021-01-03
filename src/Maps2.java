@@ -60,6 +60,20 @@ public class Maps2 {
         return out;
 
     }
+    public String wordAppend(String[] strings) {
+        StringBuilder build = new StringBuilder();
+        Map<String, String> checker = new HashMap<>();
+        for(int i = 0; i < strings.length; i++){
+            if(checker.containsKey(strings[i])){
+                build.append(strings[i]);
+                checker.remove(strings[i]);
+            } else {
+                checker.put(strings[i], strings[i]);
+            }
+        }
+        return build.toString();
+    }
+
 
 
 }
