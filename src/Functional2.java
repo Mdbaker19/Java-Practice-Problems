@@ -16,5 +16,18 @@ public class Functional2 {
         nums.removeIf(n -> n > 12 && n < 20);
         return nums;
     }
+    public List<String> noZ(List<String> strings) {
+        strings.removeIf(s -> hasZ(s));
+        return strings;
+    }
+
+    public boolean hasZ(String s){
+        for(int i = 0; i < s.length(); i++){
+            if(s.charAt(i) == 'z'){
+                return true;
+            }
+        }
+        return false;
+    }
 
 }
