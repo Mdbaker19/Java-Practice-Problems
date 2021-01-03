@@ -66,8 +66,8 @@ public class RecursionEasy {
         return rows + triangle(rows - 1);
     }
 
-    public int triangle(int rows) {
-        return rows > 0 ?  rows + triangle(rows - 1) : 0;
+    public int triangleSecond(int rows) {
+        return rows > 0 ?  rows + triangleSecond(rows - 1) : 0;
     }
 
 
@@ -82,8 +82,8 @@ public class RecursionEasy {
         return 2 + bunnyEars(bunnies - 1);
     }
 
-    public int bunnyEars(int bunnies) {
-        return bunnies >= 1 ? 2 + bunnyEars(bunnies - 1) : 0;
+    public int bunnyEarsSecond(int bunnies) {
+        return bunnies >= 1 ? 2 + bunnyEarsSecond(bunnies - 1) : 0;
     }
 
     public int bunnyEars2(int bunnies) {
@@ -93,10 +93,10 @@ public class RecursionEasy {
         return 3 + bunnyEars2(bunnies - 1);
     }
 
-    public int bunnyEars2(int bunnies) {
+    public int bunnyEars2Second(int bunnies) {
         if(bunnies < 1) return 0;
         if(bunnies <= 1) return 2;
-        return bunnies % 2 == 0 ? 3 + bunnyEars2(bunnies - 1) : 2 + bunnyEars2(bunnies - 1);
+        return bunnies % 2 == 0 ? 3 + bunnyEars2Second(bunnies - 1) : 2 + bunnyEars2Second(bunnies - 1);
     }
 
     public static int countX(String str) {
@@ -129,6 +129,16 @@ public class RecursionEasy {
             count++;
         }
         return count + array11(nums, index + 1);
+    }
+    public int count7(int n) {
+        int count = 0;
+
+        if (n < 10){
+            return n == 7 ? count + 1 : count + 0;
+        }
+        int digit = n % 10;
+        if(digit == 7) count++;
+        return count + count7(n / 10);
     }
 
 }
