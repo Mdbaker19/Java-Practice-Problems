@@ -51,5 +51,9 @@ public class Functional1 {
         nums.replaceAll(n -> (n + 1) * 10);
         return nums;
     }
+    public List<Integer> rightDigit(List<Integer> nums) {
+        nums.replaceAll(n -> n%10);
+        return nums;
+    }
 
 }
