@@ -55,5 +55,9 @@ public class Functional1 {
         nums.replaceAll(n -> n%10);
         return nums;
     }
+    public List<String> lower(List<String> strings) {
+        strings = strings.stream().map(s -> s.toLowerCase()).collect(Collectors.toList());
+        return strings;
+    }
 
 }
