@@ -49,5 +49,15 @@ public class Warmup2 {
         }
         return out;
     }
+    public String stringSplosion(String str) {
+        StringBuilder out = new StringBuilder();
+        for(int i = 0; i < str.length(); i++){
+            for(int j = 0; j <= i; j++){
+                out.append(str.charAt(j));
+            }
+        }
+        return out.toString();
+    }
+
 
 }
