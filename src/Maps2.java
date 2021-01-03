@@ -15,6 +15,13 @@ public class Maps2 {
         }
         return out;
     }
+    public Map<String, Integer> wordLen(String[] strings) {
+        Map<String, Integer> out = new HashMap<>();
+        for(String s : strings){
+            out.put(s, s.length());
+        }
+        return out;
+    }
 
 
 }
