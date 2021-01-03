@@ -1,17 +1,20 @@
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Functional1 {
     public static void main(String[] args) {
-        List<Integer> nums = new ArrayList<>(Arrays.asList(1, 2, 3));
+//        List<Integer> nums = new ArrayList<>(Arrays.asList(1, 2, 3));
+//
+//        System.out.println(nums);
+//        for(int i = 0; i < nums.size(); i++){
+//            nums.set(i, nums.get(i) * 2);
+//        }
+//
+//        System.out.println(nums);
 
-        System.out.println(nums);
-        for(int i = 0; i < nums.size(); i++){
-            nums.set(i, nums.get(i) * 2);
-        }
 
-        System.out.println(nums);
 
     }
 
@@ -33,6 +36,11 @@ public class Functional1 {
             String star = strings.get(i) + "*";
             strings.set(i, star);
         }
+        return strings;
+    }
+    public List<String> copies3(List<String> strings) {
+        strings.replaceAll(s -> s + s + s);
+
         return strings;
     }
 }
