@@ -16,6 +16,7 @@ public class Functional1 {
 
 
 
+
     }
 
     public List<Integer> doubling(List<Integer> nums) {
@@ -58,6 +59,21 @@ public class Functional1 {
     public List<String> lower(List<String> strings) {
         strings = strings.stream().map(s -> s.toLowerCase()).collect(Collectors.toList());
         return strings;
+    }
+
+    public List<String> noX(List<String> strings) {
+        strings.replaceAll(s -> filterX(s));
+        return strings;
+    }
+
+    public String filterX(String s){
+        String out = "";
+        for(int i = 0; i < s.length(); i++){
+            if(s.charAt(i) != 'x'){
+                out+=s.charAt(i);
+            }
+        }
+        return out;
     }
 
 }
