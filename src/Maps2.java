@@ -104,6 +104,23 @@ public class Maps2 {
         }
         return strings;
     }
+    public String[] firstSwap(String[] strings) {
+        Map<String, Integer> data = new HashMap<>();
+        Map<String, Integer> copy = new HashMap<>();
+        for(int i = 0; i < strings.length; i++){
+            String first = strings[i].substring(0, 1);
+            if(data.containsKey(first) && !copy.containsKey(first)){
+                String temp = strings[i];
+                strings[i] = strings[data.get(first)];
+                strings[data.get(first)] = temp;
+                data.remove(first);
+                copy.put(first, i);
+            } else {
+                data.put(first, i);
+            }
+        }
+        return strings;
+    }
 
 
 }
