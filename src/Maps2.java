@@ -22,6 +22,15 @@ public class Maps2 {
         }
         return out;
     }
+    public Map<String, String> pairs(String[] strings) {
+        Map<String, String> out = new HashMap<>();
+        for(String s : strings){
+            String subKey = s.substring(0, 1);
+            String subVal = s.substring(s.length()-1);
+            out.put(subKey, subVal);
+        }
+        return out;
+    }
 
 
 }
