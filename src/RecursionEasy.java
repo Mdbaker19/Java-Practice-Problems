@@ -66,6 +66,10 @@ public class RecursionEasy {
         return rows + triangle(rows - 1);
     }
 
+    public int triangle(int rows) {
+        return rows > 0 ?  rows + triangle(rows - 1) : 0;
+    }
+
 
     public static int powerN(int base, int n) {
         if(n == 1) return base;
