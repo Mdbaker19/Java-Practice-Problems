@@ -58,6 +58,23 @@ public class Warmup2 {
         }
         return out.toString();
     }
+    public int last2(String str) {
+        if(str.length() < 2) return 0;
+        String sub = str.substring(str.length() - 2);
+        int count = 0;
+
+        for(int i = 0; i < str.length() - 2; i++){
+            StringBuilder test = new StringBuilder();
+            test.append(str.charAt(i));
+            test.append(str.charAt(i + 1));
+            String s = test.toString();
+            if(sub.equals(s)){
+                count++;
+            }
+        }
+        return count;
+
+    }
 
 
 }
