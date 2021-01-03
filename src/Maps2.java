@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -86,6 +87,23 @@ public class Maps2 {
     }
 
 
+    public static String[] allSwap(String[] strings) {
+        Map<String, Integer> data = new HashMap<>();
+
+        for(int i = 0; i < strings.length; i++){
+            String first = strings[i].substring(0, 1);
+            if(data.containsKey(first)){
+                String temp = strings[i];
+                strings[i] = strings[data.get(first)];
+                strings[data.get(first)] = temp;
+                data.remove(first);
+            }
+            else {
+                data.put(first, i);
+            }
+        }
+        return strings;
+    }
 
 
 }
