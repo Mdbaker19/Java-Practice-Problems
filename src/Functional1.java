@@ -21,4 +21,11 @@ public class Functional1 {
         }
         return nums;
     }
+    public List<Integer> square(List<Integer> nums) {
+        for(int i = 0; i < nums.size(); i++){
+            int num = nums.get(i);
+            nums.set(i, num * num);
+        }
+        return nums;
+    }
 }
