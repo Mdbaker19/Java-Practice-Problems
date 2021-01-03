@@ -73,6 +73,18 @@ public class Maps2 {
         }
         return build.toString();
     }
+    public Map<String, Boolean> wordMultiple(String[] strings) {
+        Map<String, Boolean> out = new HashMap<>();
+        for(String s : strings){
+            if(out.containsKey(s)){
+                out.put(s, true);
+            } else {
+                out.put(s, false);
+            }
+        }
+        return out;
+    }
+
 
 
 
