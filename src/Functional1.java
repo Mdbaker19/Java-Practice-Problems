@@ -28,4 +28,11 @@ public class Functional1 {
         }
         return nums;
     }
+    public List<String> addStar(List<String> strings) {
+        for(int i = 0; i < strings.size(); i++){
+            String star = strings.get(i) + "*";
+            strings.set(i, star);
+        }
+        return strings;
+    }
 }
