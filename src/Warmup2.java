@@ -22,4 +22,15 @@ public class Warmup2 {
         }
         return out;
     }
+    int countXX(String str) {
+        int count = 0;
+
+        for(int i = 0; i < str.length() - 1; i++){
+            String check = str.charAt(i) +""+ str.charAt(i + 1);
+            if(check.equals("xx")){
+                count++;
+            }
+        }
+        return count;
+    }
 }
