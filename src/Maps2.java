@@ -31,6 +31,19 @@ public class Maps2 {
         }
         return out;
     }
+    public Map<String, Integer> wordCount(String[] strings) {
+        Map<String, Integer> out = new HashMap<>();
+        for(String s : strings){
+            int count = 0;
+            for(int i = 0; i < strings.length; i++){
+                if(strings[i].equals(s)){
+                    count++;
+                }
+            }
+            out.put(s, count);
+        }
+        return out;
+    }
 
 
 }
