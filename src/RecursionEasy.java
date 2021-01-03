@@ -33,9 +33,14 @@ public class RecursionEasy {
         return n >= 10 ? n % 10 + sumDigitsSecond(n/10) : n;
     }
 
+
+
+
     public static int factorial(int n) {
         return (n == 1) ? 1 : n * factorial(n - 1);
     }
+
+
 
     public static Long fibonacci(int n) {
         if(n == 0) return 0L;
@@ -52,11 +57,16 @@ public class RecursionEasy {
         return memo.get(n);
     }
 
+
+
+
     public static int triangle(int rows) {
         if(rows == 1) return 1;
         if(rows == 0) return 0;
         return rows + triangle(rows - 1);
     }
+
+
     public static int powerN(int base, int n) {
         if(n == 1) return base;
         return base * powerN(base, n -1);
@@ -66,6 +76,10 @@ public class RecursionEasy {
         if(bunnies == 0) return 0;
         if(bunnies == 1) return 2;
         return 2 + bunnyEars(bunnies - 1);
+    }
+
+    public int bunnyEars(int bunnies) {
+        return bunnies >= 1 ? 2 + bunnyEars(bunnies - 1) : 0;
     }
 
     public int bunnyEars2(int bunnies) {
