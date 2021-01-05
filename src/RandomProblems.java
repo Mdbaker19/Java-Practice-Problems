@@ -3,7 +3,7 @@ import java.util.Map;
 
 public class RandomProblems {
     public static void main(String[] args) {
-        System.out.println(letterCounter("aaeadedssddterurdcas"));
+        System.out.println(maxValue(letterCounter("eiiieedhhhhhihdeeii")));
     }
     public static HashMap<Character, Integer> letterCounter(String string){
         HashMap<Character, Integer> charList = new HashMap<>();
