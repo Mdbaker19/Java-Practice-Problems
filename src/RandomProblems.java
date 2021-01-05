@@ -1,4 +1,5 @@
 import java.util.HashMap;
+import java.util.Map;
 
 public class RandomProblems {
     public static void main(String[] args) {
@@ -16,5 +17,17 @@ public class RandomProblems {
             }
         }
         return charList;
+    }
+
+    public static char maxValue(HashMap<Character, Integer> charList){
+        int highest = 0;
+        char winner = ' ';
+        for(Map.Entry<Character, Integer> list : charList.entrySet()){
+            if(list.getValue() > highest){
+                highest = list.getValue();
+                winner = list.getKey();
+            }
+        }
+        return winner;
     }
 }
