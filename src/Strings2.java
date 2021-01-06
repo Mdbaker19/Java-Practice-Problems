@@ -50,5 +50,21 @@ public class Strings2 {
         }
         return codes;
     }
+    public boolean endOther(String a, String b) {
+        int bLen = b.length();
+        int aLen = a.length();
+        String aCompare = "";
+        String bCompare = "";
+
+        if(aLen > bLen) {
+            aCompare = a.substring(a.length()-bLen);
+            return aCompare.toLowerCase().equals(b.toLowerCase());
+        }
+
+        else {
+            bCompare = b.substring(b.length()-aLen);
+            return bCompare.toLowerCase().equals(a.toLowerCase());
+        }
+    }
 
 }
