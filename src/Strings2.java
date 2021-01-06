@@ -38,5 +38,17 @@ public class Strings2 {
 
         return cats == dogs;
     }
+    public int countCode(String str) {
+        int codes = 0;
+        for(int i = 0; i < str.length() - 3; i++){
+            StringBuilder check = new StringBuilder();
+            check.append(str.charAt(i));
+            check.append(str.charAt(i + 1));
+            check.append(str.charAt(i + 3));
+            String format = check.toString();
+            if(format.equals("coe")) codes++;
+        }
+        return codes;
+    }
 
 }
