@@ -10,4 +10,17 @@ public class Strings2 {
         }
         return out.toString();
     }
+    public int countHi(String str) {
+        int count = 0;
+        for(int i = 0; i < str.length() - 1; i++){
+            StringBuilder hi = new StringBuilder();
+            hi.append(str.charAt(i));
+            hi.append(str.charAt(i + 1));
+            if(hi.toString().equals("hi")){
+                count++;
+            }
+        }
+        return count;
+    }
+
 }
