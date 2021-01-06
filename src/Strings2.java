@@ -22,5 +22,21 @@ public class Strings2 {
         }
         return count;
     }
+    public boolean catDog(String str) {
+        int cats = 0;
+        int dogs = 0;
+
+        for(int i = 0; i < str.length() - 2; i++){
+            StringBuilder check = new StringBuilder();
+            check.append(str.charAt(i));
+            check.append(str.charAt(i + 1));
+            check.append(str.charAt(i + 2));
+            String format = check.toString();
+            if(format.equals("dog")) dogs++;
+            if(format.equals("cat")) cats++;
+        }
+
+        return cats == dogs;
+    }
 
 }
