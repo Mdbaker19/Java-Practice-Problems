@@ -1,9 +1,13 @@
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
 public class RandomProblems {
+
+    // collections.max on a hash map value;
+
     public static void main(String[] args) {
-        System.out.println(maxValue(letterCounter("eiiieedhhhhhihdeeii")));
+        System.out.println(maxValue(letterCounter("helllooeoh")));
     }
     public static HashMap<Character, Integer> letterCounter(String string){
         HashMap<Character, Integer> charList = new HashMap<>();
@@ -19,15 +23,20 @@ public class RandomProblems {
         return charList;
     }
 
-    public static char maxValue(HashMap<Character, Integer> charList){
+    public static ArrayList<Character> maxValue(HashMap<Character, Integer> charList){
+        ArrayList<Character> winners = new ArrayList<>();
         int highest = 0;
-        char winner = ' ';
         for(Map.Entry<Character, Integer> list : charList.entrySet()){
             if(list.getValue() > highest){
                 highest = list.getValue();
-                winner = list.getKey();
             }
         }
-        return winner;
+        int amount = highest;
+        for(Map.Entry<Character, Integer> letter : charList.entrySet()){
+            if(letter.getValue() == amount){
+                winners.add(letter.getKey());
+            }
+        }
+        return winners;
     }
 }

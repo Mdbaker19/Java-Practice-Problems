@@ -87,4 +87,18 @@ public class Warmup1 {
     public boolean lastDigit(int a, int b) {
         return a%10 == b%10;
     }
+    public int max1020(int a, int b) {
+        if(withinRange(a) && withinRange(b)){
+            return Math.max(a, b);
+        } else if(withinRange(a) && !withinRange(b)){
+            return a;
+        } else if(withinRange(b) && !withinRange(a)){
+            return b;
+        }
+        return 0;
+    }
+    public boolean withinRange(int a){
+        return (a >= 10 && a <= 20);
+    }
+
 }
