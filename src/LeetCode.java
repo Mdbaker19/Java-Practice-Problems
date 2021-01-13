@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.List;
 
 public class LeetCode {
 
@@ -38,5 +39,19 @@ public class LeetCode {
         return highest;
     }
 
+    public List<Boolean> kidsWithCandies(int[] candies, int extraCandies) {
+        List<Boolean> out = new ArrayList<>();
+        for(int c : candies){
+            out.add(isMax(candies, c + extraCandies));
+        }
+        return out;
+    }
+
+    public static boolean isMax(int[] nums, int num){
+        for(int x : nums){
+            if(x > num) return false;
+        }
+        return true;
+    }
 
 }
