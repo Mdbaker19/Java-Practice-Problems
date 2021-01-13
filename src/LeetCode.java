@@ -220,4 +220,27 @@ public class LeetCode {
         return pro-sum;
 
     }
+
+    public int[] decompressRLElist(int[] nums) {
+
+        ArrayList<Integer> bucket = new ArrayList<>();
+
+        for(int i = 0; i < nums.length; i+=2){
+            int val = nums[i + 1];
+            int freq = nums[i];
+
+            for(int j = 0; j < freq; j++){
+                bucket.add(val);
+            }
+        }
+
+        int[] out = new int[bucket.size()];
+
+
+        for(int i = 0; i < out.length; i++){
+            out[i] = bucket.get(i);
+        }
+
+        return out;
+    }
 }
