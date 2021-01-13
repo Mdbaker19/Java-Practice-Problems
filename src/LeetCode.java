@@ -54,4 +54,29 @@ public class LeetCode {
         return true;
     }
 
+    public int[] shuffle(int[] nums, int n) {
+        int[] first = new int[nums.length/2];
+        int[] second = new int[nums.length/2];
+
+        int[] out = new int[nums.length];
+
+        for(int i = 0; i < n; i ++){
+            first[i] = nums[i];
+        }
+        int j = 0;
+        for(int i = n; i < nums.length; i++){
+            second[j] = nums[i];
+            j++;
+        }
+
+        int k = 0;
+        for(int i = 0; i < nums.length; i+=2){
+            out[i] = first[k];
+            out[i + 1] = second[k];
+            k++;
+        }
+
+        return out;
+    }
+
 }
