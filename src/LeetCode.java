@@ -79,4 +79,15 @@ public class LeetCode {
         return out;
     }
 
+
+    public String defangIPaddr(String address) {
+        StringBuilder out = new StringBuilder();
+
+        for(char c : address.toCharArray()){
+            if(c == '.') out.append("[.]");
+            else out.append(c);
+        }
+
+        return out.toString();
+    }
 }
