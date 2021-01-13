@@ -243,4 +243,22 @@ public class LeetCode {
 
         return out;
     }
+
+    public int[] createTargetArray(int[] nums, int[] index) {
+
+        int[] out = new int[nums.length];
+        ArrayList<Integer> bucket = new ArrayList<>();
+
+        for(int i = 0; i < nums.length; i++){
+
+            bucket.add(index[i], nums[i]);
+
+        }
+
+        for(int i = 0; i < bucket.size(); i++){
+            out[i] = bucket.get(i);
+        }
+
+        return out;
+    }
 }
