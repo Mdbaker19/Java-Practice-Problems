@@ -261,4 +261,25 @@ public class LeetCode {
 
         return out;
     }
+
+    public int countConsistentStrings(String allowed, String[] words) {
+        int count = 0;
+        for(String s : words){
+            if(match(allowed, s)) count++;
+        }
+        return count;
+    }
+
+    public static boolean match(String rule, String input){
+        HashMap<Character, Character> build = new HashMap<>();
+        for(char c : rule.toCharArray()){
+            build.put(c, c);
+        }
+        for(char c : input.toCharArray()){
+            if(build.get(c) == null){
+                return false;
+            }
+        }
+        return true;
+    }
 }
