@@ -159,4 +159,23 @@ public class LeetCode {
 
         return output;
     }
+
+    public String restoreString(String s, int[] indices) {
+        char[] build = new char[s.length()];
+
+        for(int i = 0; i < s.length(); i++){
+
+            build[indices[i]] = s.charAt(i);
+
+        }
+
+        StringBuilder out = new StringBuilder();
+
+        for(int i = 0; i < build.length; i++){
+            out.append(build[i]);
+        }
+
+        return out.toString();
+
+    }
 }
