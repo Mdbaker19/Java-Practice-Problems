@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class LeetCode {
@@ -102,6 +103,21 @@ public class LeetCode {
                 if(i < j && curr == inner) count++;
             }
         }
+        return count;
+    }
+
+    public int numJewelsInStones(String jewels, String stones) {
+        HashMap<Character, Character> jewel = new HashMap<>();
+        for(char c : jewels.toCharArray()){
+            jewel.put(c, c);
+        }
+
+        int count = 0;
+
+        for(char c : stones.toCharArray()){
+            if(jewel.get(c) != null) count++;
+        }
+
         return count;
     }
 }
