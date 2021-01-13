@@ -178,4 +178,19 @@ public class LeetCode {
         return out.toString();
 
     }
+
+    public int numberOfSteps (int num) {
+        int count = 0;
+
+        if(num == 0) return count;
+
+        if(num % 2 == 0) {
+            count++;
+            return count+numberOfSteps(num/2);
+        } else {
+            count++;
+            return count+numberOfSteps(num-1);
+        }
+
+    }
 }
