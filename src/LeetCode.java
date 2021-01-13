@@ -90,4 +90,18 @@ public class LeetCode {
 
         return out.toString();
     }
+
+    public int numIdenticalPairs(int[] nums) {
+        int count = 0;
+
+        for(int i = 0; i < nums.length; i++){
+            int curr = nums[i];
+            for(int j = 0; j < nums.length; j++){
+                int inner = nums[j];
+
+                if(i < j && curr == inner) count++;
+            }
+        }
+        return count;
+    }
 }
