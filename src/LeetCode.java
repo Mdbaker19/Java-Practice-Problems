@@ -193,4 +193,31 @@ public class LeetCode {
         }
 
     }
+
+    public int subtractProductAndSum(int n) {
+
+        String num = Integer.toString(n);
+
+        ArrayList<Integer> build = new ArrayList<>();
+
+        int count = 0;
+
+        while(count < num.length()){
+            build.add(Character.getNumericValue(num.charAt(count)));
+            count++;
+        }
+
+        int pro = build.get(0);
+        int sum = build.get(0);
+
+        for(int i = 1; i < build.size(); i++){
+
+            pro*=build.get(i);
+            sum+=build.get(i);
+
+        }
+
+        return pro-sum;
+
+    }
 }
