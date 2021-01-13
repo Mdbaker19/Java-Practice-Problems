@@ -142,4 +142,21 @@ public class LeetCode {
         return out.toString();
 
     }
+
+    public int[] smallerNumbersThanCurrent(int[] nums) {
+        int[] output = new int[nums.length];
+
+        for(int i = 0; i < nums.length; i++){
+            int counter = 0;
+
+            for(int j = 0; j < nums.length; j++){
+                if(nums[i] > nums[j] && j != i){
+                    counter++;
+                }
+            }
+            output[i] = counter;
+        }
+
+        return output;
+    }
 }
