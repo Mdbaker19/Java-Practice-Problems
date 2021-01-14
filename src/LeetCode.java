@@ -282,4 +282,21 @@ public class LeetCode {
         }
         return true;
     }
+
+    public int balancedStringSplit(String s) {
+        int l = 0;
+        int r = 0;
+        int total = 0;
+        for(char c : s.toCharArray()){
+            if(c == 'R') r++;
+            if(c == 'L') l++;
+
+            if(r == l) {
+                total++;
+                r=0;
+                l=0;
+            }
+        }
+        return total;
+    }
 }
