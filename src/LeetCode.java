@@ -312,4 +312,20 @@ public class LeetCode {
 
         return s1.toString().equals(s2.toString());
     }
+
+    public int maxDepth(String s) {
+        int highest = 0;
+        int count = 0;
+        for(char c : s.toCharArray()){
+            if(c == '(') {
+                count++;
+            } else if(c == ')') {
+                count--;
+            }
+            if(count > highest) {
+                highest = count;
+            }
+        }
+        return highest;
+    }
 }
