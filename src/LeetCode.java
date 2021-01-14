@@ -328,4 +328,15 @@ public class LeetCode {
         }
         return highest;
     }
+    public int numberOfMatches(int n) {
+        int matches = 0;
+        if(n < 2) return matches;
+        if(n % 2 == 1){
+            matches+=((n-1)/2);
+            return matches + numberOfMatches(((n-1)/2) + 1);
+        } else {
+            matches+=(n/2);
+            return matches + numberOfMatches(n/2);
+        }
+    }
 }
