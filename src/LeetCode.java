@@ -371,4 +371,26 @@ public class LeetCode {
         return sum;
 
     }
+
+    public int sumOddLengthSubarrays(int[] arr) {
+        int total = 0;
+        for(int x : arr){
+            total+=x;
+        }
+        for(int i = 0; i < arr.length; i++){
+            int subTotal = 0;
+            ArrayList<Integer> builder = new ArrayList<>();
+            for(int j = i; j < arr.length; j++){
+                builder.add(arr[j]);
+                if(builder.size() > 1 && builder.size() % 2 != 0){
+                    for(int x : builder){
+                        subTotal+=x;
+                    }
+                }
+            }
+            total += subTotal;
+        }
+        return total;
+    }
+
 }

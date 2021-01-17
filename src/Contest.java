@@ -30,19 +30,20 @@ public class Contest {
 
         System.out.println(callListMap);
 
+        HashMap<String, String> containmentList = new HashMap<>();
+
         int times = 0;
-        HashMap<String, String> memo = new HashMap<>();
         for(Map.Entry<String, List<String>> call : callListMap.entrySet()){
-                times+=recursiveCallFinder(call.getKey(), call.getValue(), memo, callListMap);
+                times+=recursiveCallFinder(call.getKey(), call.getValue(), callListMap, containmentList);
             }
-//        System.out.println(times);
+        System.out.println(times);
 
     }
 
 
     // MEMO KEY WILL BE THE PARENT THAT CONTAINS THE CHILD THAT CONNECTS TO 0
     // MEMO VALUE WILL BE THE CHILD THAT IS EITHER 0 OR THE ONE THAT CONNECTS TO 0 ( DIRECTLY OR EVENTUALLY )
-    private static int recursiveCallFinder(String parent, List<String> children, HashMap<String, String> memo, HashMap<String, List<String>> topLineList) {
+    private static int recursiveCallFinder(String parent, List<String> children, HashMap<String, List<String>> topLineList, HashMap<String, String> containmentList) {
         String base = "0";
         // if it contains 0 => return 1;
         // if it contains what was just added => return 1;
@@ -50,23 +51,21 @@ public class Contest {
         // and so on until it doesnt
         // at the end add to memo
 
-        int count = 0;
-        for(String child : children) {
-
-            if(memo.containsKey(parent)){
-                System.out.println(memo);
-            }
-
-            if(child.equals(base)){
-                count++;
-                memo.put(parent, child);
-                System.out.println(parent + " contains the base children =>  " + topLineList.get(parent));
-                recursiveCallFinder(child, topLineList.get(parent), memo, topLineList);
-            }
-
+        if(containmentList.get(parent) != null) {
+            System.out.println(" curr parent : " + parent + " has through association");
         }
 
 
+        int count = 0;
+        for(String child : children) {
+
+            if(child.equals(base)){
+                count++;
+                containmentList.put(parent, parent);
+                System.out.println(parent + " contains the base children =>  " + topLineList.get(parent));
+                count+=recursiveCallFinder(child, topLineList.get(parent), topLineList, containmentList);
+            }
+        }
         return count;
     }
 
