@@ -393,4 +393,31 @@ public class LeetCode {
         return total;
     }
 
+     public class ListNode {
+        int val;
+        ListNode next;
+        ListNode() {}
+        ListNode(int val) { this.val = val; }
+        ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+    }
+
+
+    public int getDecimalValue(ListNode head) {
+        StringBuilder out = new StringBuilder();
+        out.append(head.val);
+
+        if(head.next != null){
+            do{
+
+                out.append(head.next.val);
+                head = head.next;
+
+            }while(head.next != null);
+        }
+
+        int val = Integer.parseInt(out.toString(), 2);
+
+        return val;
+    }
+
 }
