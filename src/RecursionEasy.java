@@ -3,9 +3,9 @@ import java.util.HashMap;
 public class RecursionEasy {
     public static void main(String[] args) {
 
-        System.out.println(sumDigits(126)); // => 9
+//        System.out.println(sumDigits(126)); // => 9
 
-        System.out.println(factorial(5)); // => 120
+//        System.out.println(factorial(5)); // => 120
 
 //        System.out.println(fibonacci(47));// => 2971215073 // very slow
 
@@ -17,6 +17,23 @@ public class RecursionEasy {
 
 
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     //Given a non-negative int n, return the sum of its digits recursively
     public static int sumDigits(int n) {
