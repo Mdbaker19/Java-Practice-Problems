@@ -9,18 +9,21 @@ public class Test {
 //        Scanner sc = new Scanner(System.in);
 //
 //        getFact(sc, "Enter a number");
+        List<String> word = new ArrayList<>(Arrays.asList("nail", "shoe", "horse", "rider", "message", "battle", "kingdom"));
 
-
-        Player player1 = new Player("matt", 100);
-
-
-        System.out.println(player1.getName());
-
-        player1.addItem("potion");
-        player1.addItem("potion");
-        player1.addItem("potion");
+        System.out.println(proverb(word));
 
         Scanner sc = new Scanner(System.in);
+        System.out.println("Welcome what is your name");
+        String name = sc.next();
+        Player player1 = new Player(name, 100);
+
+        System.out.println("hello " + player1.getName());
+
+        player1.addItem("potion");
+        player1.addItem("potion");
+        player1.addItem("potion");
+
         System.out.println("[O]pen inventory");
         hud(player1);
         if(sc.next().equals("o")){
@@ -36,7 +39,77 @@ public class Test {
 
 
 
+
+//do{
+//    player stuff
+//            enemyPhase();
+//}
+//
+//
+//        enemy attack
+//                attack(enemy)
+
     }
+
+
+
+public static void attack(Player player){
+//        if(player.getType() == "enemy"){
+//            int dmg = (int) Math.random() * 5;
+//            player1.setHealth()
+//        } else {
+//            int dmg = (int) Math.random() * 10;
+//            player2.setHealth()
+//        }
+
+    int dmg = (int) (Math.random() * 10);
+
+    int hitChance = (int) (Math.random() * 100);
+    boolean isPoisoned = true;
+    int turns = 0;
+    turns++;
+
+    if(turns > 5){
+        isPoisoned = false;
+    }
+
+    if(hitChance <= 5){
+        dmg = 0;
+        System.out.println("Missed");
+    }else if( hitChance >= 95){
+        dmg*=2;
+        System.out.println("Critical");
+    }
+
+//    enemy.setHealth(enemy.getHealth() - dmg);
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     public static void hud(Player player){
         System.out.println(player.getHealth());
     }
@@ -45,7 +118,15 @@ public class Test {
 
 
 
-
+    public static String proverb(List<String> words){
+        StringBuilder out = new StringBuilder();
+        for(int i = 0; i < words.size() - 1; i++){
+            out.append("For want of a ").append(words.get(i)).append(" a ").append(words.get(i + 1)).append(" was lost");
+            out.append("\n");
+        }
+        out.append("all for the want of a ").append(words.get(0));
+        return out.toString();
+    }
 
 
 

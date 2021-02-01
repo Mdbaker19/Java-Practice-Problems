@@ -6,6 +6,12 @@ public class Player {
     private int health;
     private List<String> inventory = new ArrayList<>();
 
+    public Player(){}
+
+    public void block(){
+        System.out.println("Blocked Attack");
+    }
+
     public Player(String name, int health){
         this.name = name;
         this.health = health;
@@ -14,6 +20,11 @@ public class Player {
     public String getName(){
         return this.name;
     }
+    public void setName(String newName){
+        this.name = newName;
+    }
+
+
     public int getHealth(){
         return this.health;
     }
