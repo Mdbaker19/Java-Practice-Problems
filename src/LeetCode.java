@@ -429,4 +429,53 @@ public class LeetCode {
         return count;
     }
 
+
+    public int minTimeToVisitAllPoints(int[][] points) {
+
+        int count = 0;
+        int movement = 0;
+        while(count < points.length - 1){
+
+            int fX = points[count][0];
+            int fY = points[count][1];
+
+            int sX = points[count + 1][0];
+            int sY = points[count + 1][1];
+
+            int xDiff = getDiff(fX, sX);
+            int yDiff = getDiff(fY, sY);
+
+            while(xDiff > 0 || yDiff > 0){
+                if(xDiff > 0 && yDiff > 0){
+                    xDiff--;
+                    yDiff--;
+                } else if(xDiff > 0 && yDiff <= 0){
+                    xDiff--;
+                } else if (yDiff > 0 && xDiff <= 0){
+                    yDiff--;
+                }
+                movement++;
+            }
+            count++;
+        }
+        return movement;
+    }
+
+
+
+
+    public static int getDiff(int x, int y){
+        int count = 0;
+        if(x < y){
+            for(int i = x; i < y; i++){
+                count++;
+            }
+        } else {
+            for(int i = y; i < x; i++){
+                count++;
+            }
+        }
+        return count;
+    }
+
 }
