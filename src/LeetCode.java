@@ -539,4 +539,16 @@ public class LeetCode {
         return -1;
     }
 
+    public int removeElement(int[] nums, int val) {
+        int count = 0;
+        for(int i = 0; i < nums.length; i++){
+            int curr = nums[i];
+            if(curr != val) {
+                nums[count] = curr;
+                count++; // 1
+            }
+        }
+        return count;
+    }
+
 }
