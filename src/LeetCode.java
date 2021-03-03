@@ -523,4 +523,20 @@ public class LeetCode {
         }
     }
 
+    public int strStr(String haystack, String needle) {
+        if(needle.length() < 1) return 0;
+
+        int len = needle.length(); // 1
+
+        for(int i = 0; i <= haystack.length() - len; i++){ // i = 0
+
+            String toCheck = haystack.substring(i, i + len);
+
+            if(toCheck.equals(needle)) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
 }
