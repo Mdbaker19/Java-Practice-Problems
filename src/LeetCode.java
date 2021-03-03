@@ -1,7 +1,5 @@
 import javax.swing.tree.TreeNode;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 
 public class LeetCode {
 
@@ -476,6 +474,53 @@ public class LeetCode {
             }
         }
         return count;
+    }
+
+    public int diagonalSum(int[][] mat) {
+        int sum = 0;
+        Set<Integer> set = new HashSet<>();
+        for(int i = 0; i < mat.length; i++){
+            sum+=mat[i][i];
+            set.add(indexed(i + 1, i + 1));
+        }
+        int back = 0;
+        for(int i = mat[0].length - 1; i >= 0; i--){
+            if(!set.contains(indexed(i + 1, back + 1))){
+                sum+=mat[i][back];
+            }
+            set.add(indexed(i + 1, back));
+            back++;
+        }
+
+        return sum;
+    }
+
+    public static int indexed(int r, int c){
+        return Integer.parseInt(r+""+c);
+    }
+
+
+    public int maximum69Number (int num) {
+        int spot = 0;
+        boolean swapped = false;
+        StringBuilder out = new StringBuilder();
+        String n = String.valueOf(num);
+        for(int i = 0; i < n.length(); i++){
+            char c = n.charAt(i);
+            if(c == '6'){
+                out.append('9');
+                spot = i;
+                swapped = true;
+                break;
+            } else {
+                out.append(c);
+            }
+        }
+        if(swapped){
+            return Integer.parseInt(out.toString()+n.substring(spot + 1));
+        } else {
+            return Integer.parseInt(out.toString());
+        }
     }
 
 }
