@@ -4,7 +4,6 @@ import java.util.*;
 public class LeetCode {
 
     public static void main(String[] args) {
-
     }
     public int[] runningSum(int[] nums) {
         int[] out = new int[nums.length];
@@ -549,6 +548,29 @@ public class LeetCode {
             }
         }
         return count;
+    }
+
+    public int maxSubArray(int[] nums) {
+        int[] arr = new int[nums.length];
+        int number = nums[0];
+        arr[0] = number;
+        int sum = nums[0];
+        for(int i = 1; i < nums.length; i++){
+            sum+=nums[i];
+            arr[i] = max(sum, nums[i]);
+            if(nums[i] > sum) sum = nums[i];
+        }
+        return max(arr);
+    }
+    public int max(int a, int b){
+        return a > b ? a : b;
+    }
+    public int max(int[] arr){
+        int x = Integer.MIN_VALUE;
+        for(int a : arr){
+            if( a > x ) x = a;
+        }
+        return x;
     }
 
 }
