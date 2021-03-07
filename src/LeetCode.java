@@ -572,5 +572,15 @@ public class LeetCode {
         }
         return x;
     }
-
+    public boolean canJump(int[] nums) {
+        int len = nums.length;
+        int goal = nums[len - 1];
+        for(int i = len - 1; i >= 0; i--){
+            int curr = nums[i];
+            if(curr + i >= goal) {
+                goal = i;
+            }
+        }
+        return goal == 0;
+    }
 }
