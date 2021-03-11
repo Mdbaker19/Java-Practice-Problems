@@ -583,4 +583,22 @@ public class LeetCode {
         }
         return goal == 0;
     }
+
+    public List<Integer> selfDividingNumbers(int left, int right) {
+        List<Integer> out = new ArrayList<>();
+        for(int i = left; i <= right; i++) {
+            if(selfDivide(i)) out.add(i);
+        }
+        return out;
+    }
+    public static boolean selfDivide(int i) {
+        String check = String.valueOf(i);
+        List<String> out = new ArrayList<>(Arrays.asList(check.split("")));
+        if(out.contains("0")) return false;
+        for(String s : out){
+            int x = Integer.parseInt(s);
+            if(i % x != 0) return false;
+        }
+        return true;
+    }
 }
