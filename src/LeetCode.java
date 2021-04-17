@@ -5,6 +5,34 @@ public class LeetCode {
 
     public static void main(String[] args) {
     }
+    public static int maxRope(int len) {
+        // 5 -> return 6 (3 x 2)
+        // could of been 1 (1 x 1 x 1 x 1 x 1)
+        //      2 (1 x 1 x 1 x 2)
+        //      4 (2 x 2 x 1)
+        // find the max value that can be made by splitting the length of the rope into sections
+
+
+        return -1;
+    }
+    public static int[] shift(int[] nums, int shift) {
+        int len = nums.length;
+        shift%=len;
+        if(shift == 0) return nums;
+        int[] out = new int[len];
+        for(int i = 0; i < nums.length; i++) {
+            int val = nums[i];
+            int idx = i - shift;
+            if(idx < 0) idx = len + idx;
+            out[idx] = val;
+        }
+        return out;
+    }
+
+    public static String abbr(String in){
+        int len = in.length();
+        return in.charAt(0)+ String.valueOf(len - 2) + in.charAt(len - 1);
+    }
     public int[] runningSum(int[] nums) {
         int[] out = new int[nums.length];
 
@@ -601,4 +629,51 @@ public class LeetCode {
         }
         return true;
     }
+
+    public List<String> commonChars(String[] words) {
+        String master = words[0];
+        List<String> out = new ArrayList<>();
+
+        for(int i = 0; i < master.length(); i++){
+            String curr = String.valueOf(master.charAt(i));
+            int count = 0;
+            for(int j = 1; j < words.length; j++) {
+                if(letterExists(curr, words[j], out, master)) count++;
+            }
+            if(count == words.length - 1) {
+                out.add(curr);
+            }
+        }
+        return out;
+    }
+
+    public boolean letterExists(String letter, String word, List<String> soFar, String master) {
+        if(soFar.contains(letter)) {
+            if(appears(word, letter) != appears(master, letter)) {
+                int minOcc = Math.min(appears(word, letter), appears(master, letter));
+                if(timesInList(soFar, letter) >= minOcc){
+                    return false;
+                }
+            }
+        }
+        return word.indexOf(letter) >= 0;
+    }
+
+    public int appears(String word, String letter) {
+        int count = 0;
+        for(int i = 0; i < word.length(); i++) {
+            String curr = String.valueOf(word.charAt(i));
+            if(curr.equals(letter)) count++;
+        }
+        return count;
+    }
+
+    public int timesInList(List<String> soFar, String letter) {
+        int count = 0;
+        for(String s : soFar) {
+            if(letter.equals(s)) count++;
+        }
+        return count;
+    }
+
 }
