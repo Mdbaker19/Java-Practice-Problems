@@ -676,4 +676,35 @@ public class LeetCode {
         return count;
     }
 
+    public int largestSumAfterKNegations(int[] A, int K) {
+        for(int i = 0; i < K; i++) {
+            int currMinIdx = indexOfMinValue(A);
+            int newValue = A[currMinIdx] * -1;
+            A[currMinIdx] = newValue;
+        }
+        return sumOf(A);
+    }
+
+
+    public int indexOfMinValue(int[] a) {
+        int idx = 0;
+        int max = Integer.MAX_VALUE;
+        for(int i = 0; i < a.length; i++) {
+            int curr = a[i];
+            if(curr < max) {
+                max = curr;
+                idx = i;
+            }
+        }
+        return idx;
+    }
+
+    public int sumOf(int[] a) {
+        int sum = 0;
+        for(int x : a) {
+            sum += x;
+        }
+        return sum;
+    }
+
 }
