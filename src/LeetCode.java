@@ -4,6 +4,7 @@ import java.util.*;
 public class LeetCode {
 
     public static void main(String[] args) {
+
     }
     public static int maxRope(int len) {
         // 5 -> return 6 (3 x 2)
@@ -705,6 +706,69 @@ public class LeetCode {
             sum += x;
         }
         return sum;
+    }
+    public int[] sortArrayByParity(int[] A) {
+        int count = 0; // when is len, out arr is full
+        int len = A.length;
+        int idx = 0; // work left to right through arr
+        int rightInsert = A.length - 1;
+        int leftInsert = 0;
+        int[] out = new int[len];
+        while(count < len) {
+            int curr = A[idx];
+            if(curr % 2 == 0) {
+                out[leftInsert] = curr;
+                leftInsert++;
+            } else {
+                out[rightInsert] = curr;
+                rightInsert--;
+            }
+            idx++;
+            count++;
+        }
+        return out;
+    }
+
+    public boolean checkIfExist(int[] arr) {
+        for(int i = 0; i < arr.length; i++) {
+            int curr = arr[i];
+            for(int j = 0; j < arr.length; j++) {
+                if(j == i) continue;
+                int inner = arr[j];
+                if(curr == inner * 2) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+
+    public boolean stoneGame(int[] piles) {
+        int aSum = 0;
+        int lSum = 0;
+        for(int i = 0; i < piles.length; i++) {
+            int[] set = maxFrom(piles);
+            int best = set[0];
+            if(i % 2 == 0) {
+                aSum+=best;
+            } else {
+                lSum+=best;
+            }
+            piles[set[1]] = Integer.MIN_VALUE;
+        }
+        return aSum > lSum;
+    }
+    public int[] maxFrom(int[] arr) {
+        int m = Integer.MIN_VALUE;
+        int idx = 0;
+        for(int i = 0; i < arr.length; i++) {
+            if(arr[i] > m) {
+                m = arr[i];
+                idx = i;
+            }
+        }
+        return new int[] {m, idx};
     }
 
 }
