@@ -5,7 +5,47 @@ public class LeetCode {
 
     public static void main(String[] args) {
 
+
+//        System.out.println(strings("Tart", "Rat")); // false
+//        System.out.println(strings("Tar", "tra")); //true
+//        System.out.println(strings("tar", "atr")); // true
+//        System.out.println(strings("apples", "Pelsap")); // true
+//        System.out.println(strings("totally", "yalltoo")); // false
+//        System.out.println(strings("ups", "down")); // false
+//        System.out.println(strings("aaaaaaaaaaaaaaa", "aaaaaaaaaaaaaaa")); // true
+//        System.out.println(strings("aaaaaaaaaaaaaaa", "aaaaaaaaaaaaaa")); // false
+//        System.out.println(strings("", "aaaaaaaaaaaaaa")); // false
+//        System.out.println(strings("aaaaaaaaaaaaaa", "")); // false
+//        System.out.println(strings("dddaaacccbbb", "aaabbbcccddd")); // true
+
     }
+
+
+    public static boolean strings(String s1, String s2) {
+        if(s1.length() != s2.length()) return false;
+        HashMap<Character, Integer> first = charCount(s1.toLowerCase());
+        HashMap<Character, Integer> second = charCount(s2.toLowerCase());
+
+        for(Map.Entry<Character, Integer> e : first.entrySet()) {
+            int val = e.getValue();
+            char key = e.getKey();
+            int matchVal = second.get(key) != null ? second.get(key) : 0;
+            if(val != matchVal) return false;
+        }
+        return true;
+    }
+
+    public static HashMap<Character, Integer> charCount(String s) {
+        HashMap<Character, Integer> map = new HashMap<>();
+        for(int i = 0; i < s.length(); i++) {
+            char curr = s.charAt(i);
+            if(map.containsKey(curr)) {
+                map.put(curr, map.get(curr) + 1);
+            } else map.put(curr, 1);
+        }
+        return map;
+    }
+
     public static int maxRope(int len) {
         // 5 -> return 6 (3 x 2)
         // could of been 1 (1 x 1 x 1 x 1 x 1)
@@ -769,6 +809,35 @@ public class LeetCode {
             }
         }
         return new int[] {m, idx};
+    }
+
+    public List<Integer> luckyNumbers (int[][] matrix) {
+        List<Integer> out = new ArrayList<>();
+
+        for(int i = 0; i < matrix.length; i++) {
+            int[] curr = matrix[i];
+            for(int j = 0; j < curr.length; j++) {
+                int num = curr[j];
+                if(isLucky(num, i, j, matrix)) out.add(num);
+            }
+        }
+
+        return out;
+    }
+
+    public boolean isLucky(int num, int row, int idx, int[][] matrix) {
+        int[] numbersRow = matrix[row];
+        List<Integer> colNums = new ArrayList<>();
+        for(int i = 0; i < matrix.length; i++) {
+            colNums.add(matrix[i][idx]);
+        }
+        for(int x : colNums) {
+            if(x > num) return false;
+        }
+        for(int x : numbersRow) {
+            if(x < num) return false;
+        }
+        return true;
     }
 
 }
