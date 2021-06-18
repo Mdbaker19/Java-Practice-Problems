@@ -840,4 +840,33 @@ public class LeetCode {
         return true;
     }
 
+    public int[] shortestToChar(String s, char c) {
+        final int len = s.length();
+        List<Integer> charLocations = charLoc(s, len, c);
+        int[] out = new int[len];
+        int bestPossible = 0;
+        for(int i = 0; i < len; i++) {
+            out[i] = minOf(charLocations, i);
+        }
+        return out;
+    }
+
+    public int minOf(List<Integer> list, int i) {
+        int x = Integer.MAX_VALUE;
+        for(int n : list) {
+            int val = Math.abs(i - n);
+            if(val < x) x = val;
+        }
+        return x;
+    }
+
+    public List<Integer> charLoc(String s, int len, char c) {
+        List<Integer> charLocations = new ArrayList<>();
+        for(int i = 0; i < len; i++) {
+            char curr = s.charAt(i);
+            if(curr == c) charLocations.add(i);
+        }
+        return charLocations;
+    }
+
 }
